@@ -41,7 +41,6 @@ def youtube_search(q, max_results=50,order="relevance", token=None, location=Non
     # matching videos, channels, and playlists.
     for search_result in search_response.get("items", []):
         if search_result["id"]["kind"] == "youtube#video":
-            #videos.append("%s (%s)" % (search_result["snippet"]["title"],search_result["id"]["videoId"]))
             title = search_result["snippet"]["title"]
             title = unidecode.unidecode(title)  # Dongho 08/10/16
             videoId = search_result["id"]["videoId"]
@@ -69,7 +68,7 @@ def youtube_search(q, max_results=50,order="relevance", token=None, location=Non
 
     csvFile.close()
   
-if __name__ == "__main__":
+ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Search on YouTube')
     parser.add_argument("--q", help="Search term", default="Google")
     parser.add_argument("--max-results", help="Max results", default=25)
